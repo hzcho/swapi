@@ -15,6 +15,7 @@ class MainActivity : ComponentActivity() {
             SwapiTheme {
                 MainScreen()
                 // test
+                // testtest
                 println()
             }
         }
