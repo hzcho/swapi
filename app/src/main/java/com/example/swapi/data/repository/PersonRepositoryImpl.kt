@@ -5,7 +5,6 @@ import com.example.swapi.data.domain.model.Person
 import com.example.swapi.data.mapper.PersonMapper
 import com.example.swapi.data.network.api.PersonService
 import com.example.swapi.data.network.model.PersonModel
-import kotlinx.coroutines.flow.Flow
 
 class PersonRepositoryImpl(
     private val dao: PersonDao,
@@ -25,6 +24,8 @@ class PersonRepositoryImpl(
     }
 
     override fun getSavedPersons() = dao.getAllPersons()
+    override fun getSavedFavorites() = dao.getFavorites()
     override suspend fun deletePerson(person: Person) = dao.deletePerson(person)
     override suspend fun insertPerson(person: Person) = dao.insertPerson(person)
+    override suspend fun updatePerson(person: Person) = dao.updatePerson(person)
 }

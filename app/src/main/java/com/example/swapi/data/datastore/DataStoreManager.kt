@@ -3,6 +3,7 @@ package com.example.swapi.data.datastore
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -22,6 +23,18 @@ class DataStoreManager(val context: Context) {
     fun getStringValue(key: String): Flow<String?> {
         return context.dataStore.data.map { pref ->
             pref[stringPreferencesKey(key)]
+        }
+    }
+
+    suspend fun saveBooleanValue(key: String, value: Boolean) {
+        context.dataStore.edit { pref ->
+            pref[booleanPreferencesKey(key)] = value
+        }
+    }
+
+    fun getBooleanValue(key: String): Flow<Boolean?> {
+        return context.dataStore.data.map { pref ->
+            pref[booleanPreferencesKey(key)]
         }
     }
 }

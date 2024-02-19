@@ -9,22 +9,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.example.swapi.ui.navigation.BottomNavGraph
+import com.example.swapi.ui.screens.home_screen.HomeScreen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainScreen(){
+fun MainScreen(
+
+){
     val navController= rememberNavController()
     Scaffold(
         bottomBar = {
-            BottomNav(navController){
-
-            }
+            BottomNav(navController)
         }
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            Button(onClick = {}){
-                Text(text = "color")
-            }
-        }
+        BottomNavGraph(navController)
     }
 }

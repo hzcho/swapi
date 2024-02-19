@@ -4,7 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.swapi.ui.screens.favorites.FavoritesScreen
 import com.example.swapi.ui.screens.home_screen.HomeScreen
+import com.example.swapi.ui.screens.settings_screen.SettingsScreen
 import com.example.swapi.ui.util.Routes
 
 @Composable
@@ -14,6 +16,16 @@ fun BottomNavGraph(navController: NavHostController){
             route = Routes.HOME_SCREEN
         ){
             HomeScreen()
+        }
+        composable(
+            route = Routes.FAVORITES_SCREEN
+        ){
+            FavoritesScreen()
+        }
+        composable(
+            route = Routes.SETTINGS_SCREEN
+        ){
+            SettingsScreen()
         }
     }
 }

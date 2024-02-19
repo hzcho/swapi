@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.Flow
 interface PersonRepository {
     suspend fun getPersonById(id:Int): Person?
     fun getSavedPersons(): Flow<List<Person>>
+    fun getSavedFavorites(): Flow<List<Person>>
     suspend fun deletePerson(person: Person)
     suspend fun insertPerson(person: Person)
+    suspend fun updatePerson(person: Person)
 }

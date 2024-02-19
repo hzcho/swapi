@@ -17,7 +17,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 
 @Composable
-fun BottomNav(navController: NavHostController, onClick: () -> Unit) {
+fun BottomNav(navController: NavHostController) {
     val itemList = listOf(
         BottomNavItem.HomeItem,
         BottomNavItem.FavoritesItem,
@@ -42,7 +42,7 @@ fun BottomNav(navController: NavHostController, onClick: () -> Unit) {
                     )
                 },
                 onClick = {
-                    onClick()
+                    navController.navigate(item.route)
                 }
             )
         }
